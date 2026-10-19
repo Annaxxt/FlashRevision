@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0D0A14">
+    <title>FlashRevision</title>
+    <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+    <main id="auth-screen" class="auth-screen">
+        <section class="auth-brand">
+            <div class="brand-icon">✦</div>
+            <p class="eyebrow">SEU ESPAÇO DE APRENDIZADO</p>
+            <h1>Flash<span>Revision</span></h1>
+            <p class="brand-description">
+                Aprenda no seu ritmo. Revise. Evolua.
+            </p>
+
+            <div class="feature-list">
+                <div class="feature-item"><span>></span> Flashcards para memorizar palavras</div>
+                <div class="feature-item"><span>></span> Desafios com amigos</div>
+                <div class="feature-item"><span>></span> Acompanhe seu progresso</div>
+            </div>
+        </section>
+
+        <section class="auth-card">
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-auth="login" type="button">
+                    Entrar
+                </button>
+                <button class="auth-tab" data-auth="register" type="button">
+                    Criar conta
+                </button>
+            </div>
+
+            <div id="login-panel">
+                <h2>Boas-vindas!</h2>
+                <p class="muted">Entre na sua conta para continuar estudando.</p>
+
+                <form id="login-form">
+                    <label for="login-email">E-mail</label>
+                    <input id="login-email" name="email" type="email"
+                           placeholder="voce@exemplo.com" autocomplete="email" required>
+
+                    <label for="login-password">Senha</label>
+                    <input id="login-password" name="senha" type="password"
+                           placeholder="Digite sua senha" autocomplete="current-password"
+                           required>
+
+                    <p id="login-message" class="form-message" aria-live="polite"></p>
+
+                    <button class="primary-button" type="submit">
+                        Entrar na minha conta <span>→</span>
+                    </button>
+                </form>
+
+                <p class="switch-text">
+                    Ainda não tem conta?
+                    <button type="button" class="text-button" data-switch="register">
+                        Cadastre-se
+                    </button>
+                </p>
+            </div>
+
+            <div id="register-panel" class="hidden">
+                <h2>Crie sua conta</h2>
+                <p class="muted">Escolha seu nick e comece a aprender.</p>
+
+                <form id="register-form">
+                    <label for="register-nick">Nick</label>
+                    <input id="register-nick" name="nick" type="text"
+                           placeholder="Como quer ser chamado?" minlength="3"
+                           maxlength="30" autocomplete="username" required>
+                    <small class="field-hint">
+                        De 3 a 30 caracteres. O nick deve ser único.
+                    </small>
+
+                    <label for="register-email">E-mail</label>
+                    <input id="register-email" name="email" type="email"
+                           placeholder="voce@exemplo.com" autocomplete="email" required>
+
+                    <label for="register-password">Senha</label>
+                    <input id="register-password" name="senha" type="password"
+                           placeholder="Crie uma senha" minlength="8"
+                           autocomplete="new-password" required>
+                    <small class="field-hint">Use pelo menos 8 caracteres.</small>
+
+                    <label for="register-confirm">Confirmar senha</label>
+                    <input id="register-confirm" name="confirmar_senha" type="password"
+                           placeholder="Digite a senha novamente"
+                           minlength="8" autocomplete="new-password" required>
+
+                    <p id="register-message" class="form-message" aria-live="polite"></p>
+
+                    <button class="primary-button" type="submit">
+                        Criar minha conta <span>→</span>
+                    </button>
+                </form>
+
+                <p class="switch-text">
+                    Já tem uma conta?
+                    <button type="button" class="text-button" data-switch="login">
+                        Fazer login
+                    </button>
+                </p>
+            </div>
+
+            <p class="privacy-note">Sua conta precisa apenas de nick, e-mail e senha.</p>
+        </section>
+    </main>
+
+    <main id="app-screen" class="app-screen hidden">
+        <aside class="sidebar">
+            <a class="sidebar-brand" href="#" data-page="inicio">
+                <span class="brand-icon small">✦</span>
+                <span>Flash<span class="accent">Revision</span></span>
+            </a>
+
+            <p class="nav-label">MENU PRINCIPAL</p>
+            <nav class="side-nav">
+                <button class="nav-item active" data-page="inicio">
+                    <span>></span> Início
+                </button>
+                <button class="nav-item" data-page="estudar">
+                    <span>></span> Estudar
+                </button>
+                <button class="nav-item" data-page="revisao">
+                    <span>></span> Revisar erros
+                </button>
+                <button class="nav-item" data-page="flashcards">
+                    <span>></span> Flashcards
+                </button>
+                <button class="nav-item" data-page="amigos">
+                     <span>></span> Amigos
+                </button>
+                <button class="nav-item" data-page="perfil">
+                    <span>></span> Meu perfil
+                </button>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="sidebar-tip">
+                    <span class="tip-icon">✦</span>
+                    <strong>Um pouco todo dia</strong>
+                    <p>A constância é parte do aprendizado.</p>
+                </div>
+                <button id="logout-button" class="logout-button">
+                    ↪ Sair da conta
+                </button>
+            </div>
+        </aside>
+
+        <section class="workspace">
+            <header class="topbar">
+                <div>
+                    <p class="eyebrow">SEU ESPAÇO DE ESTUDO</p>
+                    <h2 id="page-heading">Início</h2>
+                </div>
+                <div class="user-chip">
+                    <div class="avatar" id="user-avatar">F</div>
+                    <span id="user-nick">Estudante</span>
+                </div>
+            </header>
+
+            <div id="app-message" class="app-message" aria-live="polite"></div>
+            <section id="page-content"></section>
+        </section>
+    </main>
+
+    <script src="/assets/script.js" defer></script>
+</body>
+</html>
